@@ -1,0 +1,23 @@
+# SYNTHETIC. Points the adapters at the local mock server so the rig itself can
+# be tested without keys or network. Numbers produced with this file say
+# NOTHING about any real vendor. Runs are tagged "synthetic" and excluded from
+# trend charts by default.
+settings:
+  country: us
+  languaage: en
+  timeout_seconds: 10
+  synthetic: true
+
+providers:
+  mock_fast:
+    type: searchapi
+    base_url: http://127.0.0.1:8765/fast
+    api_key_literal: mock-key
+  mock_slow:
+    type: serpapi
+    base_url: http://127.0.0.1:8765/slow
+    api_key_literal: mock-key
+  mock_flaky:
+    type: serper
+    base_url: http://127.0.0.1:8765/flaky
+    api_key_literal: mock-key

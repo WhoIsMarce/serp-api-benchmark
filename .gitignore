@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.egg-info/
+.env
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+# Synthetic runs only validate the rig; they never belong in the repo.
+results/*-synthetic/

@@ -1,0 +1,41 @@
+id,category,query
+q01,informational,how does tcp congestion control work
+q02,informational,difference between cauth and openid connect
+q03,informational,how do vaccines train the immune system
+q04,informational,why is the sky blue
+q05,informational,history of the printing press
+q06,informational,how does a bloom filter work
+q07,informational,what causes inflation
+q08,informational,how do heat pumps work
+q09,navigational,github
+q10,navigational,python documentation
+q11,navigational,wikipedia
+q12,navigational,stack overflow
+q13,navigational,mdn web docs
+q14,navigational,openapi specification
+q15,commercial,best mechanical keyboard
+q16,commercial,best noise cancelling headphones
+q17,commercial,best project management software
+q18,commercial,best vpn for streaming
+q19,commercial,best laptop for programming
+q20,commercial,best budget espresso machine
+q21,commercial,best cloud hosting for small business
+q22,commercial,best password manager
+q23,technical,python asyncio gather vs wait
+q24,technical,postgres jsonb gin index
+q25,technical,docker compose healthcheck depends_on
+q26,technical,fastapi background tasks vs celery
+q27,technical,kubernetes liveness vs readiness probe
+q28,technical,nginx reverse proxy websocket config
+q29,technical,github actions cache pip dependencies
+q30,technical,express.js error handling middleware
+q31,time_sensitive,latest python release
+q32,time_sensitive,ethereum price
+q33,time_sensitive,latest ai model release
+q34,time_sensitive,champions league results
+q35,time_sensitive,tech layoffs this week
+q36,long_tail,how to remove a stripped screw without an extractor
+q37,long_tail,why does my sourdough starter smell like acetone
+q38,long_tail,convert yaml to json command line one liner
+q39,long_tail,how to read a sarif file in vs code
+q40,long_tail,difference between swagger ui and redoc

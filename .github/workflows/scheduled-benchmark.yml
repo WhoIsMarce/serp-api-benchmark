@@ -1,0 +1,36 @@
+# Re-measures on a schedule so numbers are tracked over time instead of
+# published once and left to rot. Needs repository secrets:
+#   SEARCHAPI_API_KEY, SERPAPI_API_KEY, SERPER_API_KEY
+# It spends paid credits on every run: check the volume first (README, "Cost of a run").
+# The vantage point is the GitHub-hosted runner, so only compare these runs with each
+# other, never with runs from your laptop.
+name: scheduled-benchmark
+on:
+  schedule:
+    - cron: "17 6 * * 1"   # Mondays 06:17 UTC
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - name: Run benchmark
+        env:
+          SEARCHAPI_API_KEY: ${{ secrets.SEARCHAPI_API_KEY }}
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+        run: serpbench run --repeats 3 --vantage-point github-actions-ubuntu -y
+      - name: Update trend and commit results
+        run: |
+          serpbench trend --vantage github-actions-ubuntu
+          git config user.name "serpbench-bot"
+          git config user.email "serpbench-bot@users.noreply.github.com"
+          git add results
+          git commit -m "chore: scheduled measurement" || echo "nothing to commit"
+          git push

@@ -1,0 +1,4 @@
+{"organic": [
+    {"title": "A", "link": "http://a.example/x", "snippet": "sa", "position": 1},
+    {"title": "B", "link": "http://b.example/y", "position": 2}
+]}

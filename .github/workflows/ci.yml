@@ -1,0 +1,24 @@
+name: ci
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[dev]"
+      - run: ruff check src tests
+      - run: pytest -q
+      - name: Smoke run against the mock server (synthetic, no keys)
+        run: |
+          serpbench mock-server --port 8765 --speed 0.05 &
+          sleep 2
+          serpbench run --config config/providers.mock.yaml --repeats 2 --limit 6 \
+            --vantage-point ci-synthetic -y

@@ -1,0 +1,5 @@
+{"search_metadata": {"status": "Success"},
+    "organic_results": [
+        {"position": 1, "title": "A", "link": "https://a.example/x", "snippet": "sa"},
+        {"position": 2, "title": "B", "link": "https://b.example/y", "snippet": ""}
+        ]}
